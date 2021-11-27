@@ -5,3 +5,4 @@ chatbot_tutorial.sublime-project
 bot_static
 __pycache__
 LICENSE
+venv

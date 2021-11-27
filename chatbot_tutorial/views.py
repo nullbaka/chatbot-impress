@@ -59,7 +59,7 @@ def respond_to_websockets(message):
 
 
 def register_view(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('chat')
 
     form = RegistrationForm()
@@ -89,7 +89,7 @@ def register_view(request):
 
 
 def login_view(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('chat')
 
     form = LoginForm()
@@ -130,7 +130,7 @@ def call_count_view(request):
 
     context = {
         'data': data,
-        'user': True if request.user.is_authenticated() else False
+        'user': True if request.user.is_authenticated else False
     }
 
     return render(request, "chatbot_tutorial/call_count.html", context)
