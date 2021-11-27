@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="shortcut icon" href="{% static 'chatbot_tutorial/favicon.ico' %}" type="image/x-icon">
+        <link rel="icon" href="{% static 'chatbot_tutorial/favicon.ico' %}" type="image/x-icon">
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <title>Counts</title>
+
+    </head>
+
+    <body>
+        <div>
+            {% if user %}
+            <a href="/logout/">Logout</a>
+            <a href="/chat/">Chat</a>
+            {% else %}
+            <a href="/login/">Login</a>
+            {% endif %}
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>User</th>
+                    <th>Fat</th>
+                    <th>Dumb</th>
+                    <th>Stupid</th>
+                    <th>..?</th>
+                  </tr>
+                  {% for d in data %}
+                  <tr>
+                      <td>{{ d.user }}</td>
+                      <td>{{ d.fat }}</td>
+                      <td>{{ d.dumb }}</td>
+                      <td>{{ d.stupid }}</td>
+                      <td>{{ d.query }}</td>
+                  </tr>
+                  {% endfor %}
+            </table>
+        </div>
+    </body>
+
+</html>
